@@ -1,0 +1,61 @@
+﻿{
+  "propertyEditors": [
+    {
+      "alias": "Matrix.ImageCropper",
+      "name": "Matrix Image Cropper",
+      "editor": {
+        "view": "/App_Plugins/MatrixImageCropper/Views/PropertyEditor.html",
+        "hideLabel": false,
+        "valueType": "STRING"
+      }
+    }
+  ],
+  //"gridEditors": [
+  //  {
+  //    "name": "Small image box (2)",
+  //    "alias": "SmallImageBox2",
+  //    "view": "/App_Plugins/SkriftImagePicker2/Views/GridEditor.html",
+  //    "icon": "icon-pictures-alt-2",
+  //    "render": "/Views/Partials/Grid/Editors/SmallImageBox2.cshtml",
+  //    "config": {
+  //      "title": {
+  //        "mode": "required",
+  //        "placeholder": "Enter an image title",
+  //        "placeholder2": "Enter an image title"
+  //      },
+  //      "description": {
+  //        "mode": "optional",
+  //        "placeholder": "Optional: Enter a small image description",
+  //        "rows": 2
+  //      }
+  //    }
+  //  },
+  //  {
+  //    "name": "Large image box (2)",
+  //    "alias": "LargeImageBox2",
+  //    "view": "/App_Plugins/SkriftImagePicker2/Views/GridEditor.html",
+  //    "icon": "icon-pictures-alt-2",
+  //    "render": "/Views/Partials/Grid/Editors/LargeImageBox2.cshtml",
+  //    "config": {
+  //      "title": {
+  //        "mode": "required",
+  //        "placeholder": "Enter an image title"
+  //      },
+  //      "description": {
+  //        "mode": "required",
+  //        "placeholder": "Enter an image description",
+  //        "rows": 5
+  //      }
+  //    }
+  //  }
+  //],
+  "javascript": [
+    "/App_Plugins/MatrixImageCropper/Scripts/Directive.js",
+    "/App_Plugins/MatrixImageCropper/Scripts/jquery.cropit.js",
+    "/App_Plugins/MatrixImageCropper/Scripts/jquery.cropit.min.js"
+  ],
+  "css": [
+   //"/App_Plugins/MatrixImageCropper/Styles/Default.css",
+    "/App_Plugins/MatrixImageCropper/Styles/ng-img-crop.css"
+  ]
+}

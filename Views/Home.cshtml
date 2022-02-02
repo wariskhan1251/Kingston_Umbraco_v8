@@ -1,0 +1,129 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "WebBase.cshtml";
+}
+<section class="search-box">
+    <article>
+        <div class="content-inner">
+            <div>
+                <input type="text" placeholder="Search" />
+                <a class="close ir" href="#">Close</a>
+                <a class="btnsearch ir" href="search-results.html">Search</a>
+            </div>
+        </div>
+    </article>
+</section>
+<section class="homepage-story">
+    <article class="img-text-box sd story">
+        <div>
+            <div class="itb-inner">
+                <figure style="background-image:url(images/header-img-home.webp);"></figure>
+                <div class="text">
+                    <div class="content-inner">
+                        <h1>WELCOME TO<br> K<span>I</span>NGSTON UP<span>O</span>N TH<span>A</span>MES</h1>
+                        <a href="things-to-do.html">Things to do</a>
+                        <a href="latest-events.html">Latest Events</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article class="img-text-box blossom story">
+        <figure style="background-image: url(images/icecream-spots-bg-img-full.webp);"></figure>
+        <div class="itb-inner">
+            <div class="content-inner">
+                <div class="text-block">
+                    <h3>The best Ice-Cream spots In kingston</h3>
+                    <p>Our top picks for a sweet treat in town.</p>
+                    <a href="javascript:;">Find out more</a>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article class="img-text-box orange left story">
+        <figure style="background-image: url(images/newintown-bg-img-full.webp);"></figure>
+        <div class="itb-inner">
+            <div class="content-inner">
+                <div class="text-block">
+                    <h3>New in town</h3>
+                    <p>Welcoming the magical Chadwick’s Home of Zoology and Incognito Cocktail Bar.</p>
+                    <a href="javascript:;">Find out more</a>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article class="img-text-box blue story">
+        <figure style="background-image: url(images/boating-brunch-bg-img-full.webp);"></figure>
+        <div class="itb-inner">
+            <div class="content-inner">
+                <div class="text-block">
+                    <h3>From Brunch to boating</h3>
+                    <p>Explore what’s on down by the river.</p>
+                    <a href="javascript:;">Find out more</a>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<section class="related-box">
+    <div class="content-inner">
+        <div class="heading-box">
+            <h3>Latest news & offers</h3>
+            <a href="news-and-offers.html" class="va-link">View all</a>
+        </div>
+        <div class="rb-inner">
+            <article>
+                <a href="javascript:;">
+                    <figure>
+                        <img src="images/afckr-thumb-img.webp" alt="">
+                    </figure>
+                    <h5>Animated film celebrates Kingston reopening</h5>
+                    <label>Event</label>
+                </a>
+            </article>
+            <article>
+                <a href="javascript:;">
+                    <figure>
+                        <img src="images/ccoijl-thumb-img.webp" alt="">
+                    </figure>
+                    <h5>Cavendish clinic opens in John Lewis</h5>
+                    <label>News & offers</label>
+                </a>
+            </article>
+            <article>
+                <a href="javascript:;">
+                    <figure>
+                        <img src="images/toapefrtg-thumb-img.webp" alt="">
+                    </figure>
+                    <h5>20% off at Eco Pizza for Rose Theatre-goers</h5>
+                    <label>News & offers</label>
+                </a>
+            </article>
+            <article>
+                <a href="javascript:;">
+                    <figure>
+                        <img src="images/wokst-thumb-img.webp" alt="">
+                    </figure>
+                    <h5>Winner of Kingston Sculpture Trail</h5>
+                    <label>News & offers</label>
+                </a>
+            </article>
+        </div>
+    </div>
+</section>
+<section class="nl-popup" style="display:none;">
+    <div class="content-inner">
+        <article>
+            <a href="javascript:;" class="close"></a>
+            <h3>Subscribe to our newsletter</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</p>
+            <div class="input-box">
+                <input type="email" placeholder="Email address">
+                <a href="javascript:;" class="submit-btn"></a>
+            </div>
+            <label>Legals ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod Privacy policy.</label>
+            <a href="javascript:;" class="btn">Subscribe</a>
+        </article>
+    </div>
+</section>

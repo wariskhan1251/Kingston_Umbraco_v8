@@ -1,0 +1,82 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<List<NavigationListItem>>
+@using Kingston_Umbraco_v8.Models;
+<header>
+    <div id="header">
+        <a href="@Solution.Common.Configuration.DomainUrl" class="logo" title="@Solution.Common.Configuration.ProjectName"></a>
+        <nav>
+            <ul>
+
+                @RenderChildItems(Model)
+              
+                <li class="search-btn">
+                    <a class="search ir" href="javascript:;">Search></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+@helper RenderChildItems(List<NavigationListItem> listItems)
+{
+    if (listItems != null)
+    {
+        foreach (var item in listItems)
+        {
+
+            if (item.Link.Text != null && (!item.Link.Text.ToLower().StartsWith("places to live")
+            && !item.Link.Text.ToLower().StartsWith("lifestyle")
+            && !item.Link.Text.ToLower().StartsWith("about us")
+            && !item.Link.Text.ToLower().Equals("get in touch")))
+            { continue; }
+
+
+            <li>
+                @if (!String.IsNullOrEmpty(item.Text))
+                {
+                    @item.Text
+
+                }
+                else if (item.Link != null)
+                {
+
+                    string LinUrl = item.Link.Url.TrimEnd('/');
+
+                    if (item.HasChildren)
+                    { LinUrl = "javascript:;"; }
+
+                    <a href="@LinUrl" class="@(Umbraco.AssignedContentItem.Url().Contains(item.Link.Url) ? "active" : null) @(item.HasChildren ? "fh5co-sub-ddown" : null)" title="@item.Link.Text" target="@item.Link.Target">@item.Link.Text</a>
+
+                }
+
+                @if (item.HasChildren)
+                {
+                    <div  class="dd-content">
+                        <ul>
+
+                            @{
+                                System.Text.StringBuilder strchilditems = new System.Text.StringBuilder();
+
+                                foreach (var childitem in item.Items)
+                                {
+                                    strchilditems.Append(Environment.NewLine + "<li>");
+                                    string CssClass = Umbraco.AssignedContentItem.Url().Contains(childitem.Link.Url) ? "active" : null;
+
+                                    strchilditems.Append("<a class=\"" + CssClass + "\" href=\"" + Solution.Common.Configuration.DomainUrl + childitem.Link.Url.TrimStart('/') + "\">" + childitem.Link.Text + "</a>" + Environment.NewLine);
+                                }
+
+                                strchilditems.Append(Environment.NewLine + "</li>");
+                            }
+
+                            @Html.Raw(strchilditems)
+                        </ul>
+                    </div>
+                }
+
+            </li>
+
+        }
+
+        
+    }
+}

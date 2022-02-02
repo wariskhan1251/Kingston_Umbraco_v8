@@ -1,0 +1,64 @@
+﻿body {font-family: Arial, Helvetica, sans-serif;}
+
+.MatrixImageCropper {
+    padding: 10px;
+}
+
+.MatrixImageCropper > div {
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.MatrixImageCropper input,
+.MatrixImageCropper textarea {
+    width: 100%;
+}
+
+.MatrixImageCropper .option {
+    display: block;
+}
+
+.MatrixImageCropper .option > span {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.MatrixImageCropper .option + .option {
+    margin-top: 10px;
+}
+
+.MatrixImageCropper .image {
+    position: relative;
+    max-width: 500px;
+}
+
+.MatrixImageCropper .image .remove {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: red;
+    background: white;
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    font-size: 24px;
+    line-height: 36px;
+    opacity: 0.5;
+    display: none;
+}
+
+.MatrixImageCropper .image:hover .remove {
+    display: block;
+}
+
+
+.MatrixImageCropper a.usky-editor-placeholder {
+    display: block;
+    border: 1px solid #bbbabf;
+    min-height: 130px;
+    background: #F3F3F5;
+}
+

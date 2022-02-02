@@ -1,0 +1,131 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Kingston_Umbraco_v8.Models;
+@using System.Web.Script.Serialization;
+@using Umbraco.Web.Models;
+@{
+    Layout = null;
+
+}
+@{
+    var ConnonicalUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+    var metaTitle = Model.HasProperty("sEOTitle") && Model.Value("sEOTitle") != null && Model.Value<string>("sEOTitle") != "" ? Model.Value<string>("sEOTitle") : string.Empty;
+    var metaDescription = Model.HasProperty("sEODescription") && Model.Value("sEODescription") != null && Model.Value<string>("sEODescription") != "" ? Model.Value<string>("sEODescription") : string.Empty;
+    var metaKeywords = Model.HasProperty("sEOKeywords") ? Model.GetProperty("sEOKeywords").Value<IEnumerable<string>>() : null;
+    var strMetaKeywords = "";
+    if (metaKeywords != null && metaKeywords.Count() > 0)
+    {
+        foreach (var tag in metaKeywords)
+        {
+            strMetaKeywords = strMetaKeywords + tag + ",";
+        }
+    }
+    strMetaKeywords = strMetaKeywords.TrimEnd(',');
+
+    string SharingImageUrl = "", SharingImageAlt = "";
+    if (Model.HasProperty("sharingImage") && Model.HasValue("sharingImage"))
+    {
+        var ThumbnailImagestringVal = Model.Value<string>("sharingImage");
+        var objThumbnailImage = new JavaScriptSerializer().Deserialize<MtxImageCropperVM>(ThumbnailImagestringVal);
+        if (objThumbnailImage != null && objThumbnailImage.imageId != 0)
+        {
+            if (objThumbnailImage != null && objThumbnailImage.imageId != 0)
+            {
+                var mediaItem = Umbraco.Media(objThumbnailImage.imageId);
+                SharingImageUrl = mediaItem.Url();
+            }
+        }
+        if (objThumbnailImage != null && objThumbnailImage.title != "")
+        { SharingImageAlt = objThumbnailImage.title; }
+    }
+}
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8 ]><html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html xmlns="https://www.w3.org/1999/xhtml" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta name="ROBOTS" content="NOINDEX, FOLLOW" />
+    <meta name="ROBOTS" content="INDEX, NOFOLLOW" />
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta charset="utf-8" />
+    <title>
+        @{
+            var strProjectName = Solution.Common.Configuration.ProjectName;
+
+            if (metaTitle != null && metaTitle.ToString().Trim().ToLower() == "home")
+            {
+                strProjectName = strProjectName.ToString();
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(metaTitle))
+                {
+                    strProjectName = metaTitle + " &#8211; " + strProjectName;
+                }
+                else
+                {
+                    strProjectName = strProjectName.ToString();
+                }
+            }
+            @Html.Raw(strProjectName);
+        }
+    </title>
+    <!-- description -->
+    <meta name="description" id="metaPageDescription" content="@metaDescription">
+    <!-- keywords -->
+    <meta name="keywords" content="@strMetaKeywords">
+    <link id="PostingCanonicalUrlCurrent1" rel="canonical" href="@ConnonicalUrl.TrimEnd('/')" />
+    <meta property="og:title" content="@metaTitle" />
+    <meta property="og:image" content="@SharingImageUrl" />
+    <meta property="og:image:alt" content="@SharingImageAlt" />
+    <meta property="og:description" content="@metaDescription" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Solution.Common.Configuration.ProjectName" />
+    <meta name="twitter:title" content="@metaTitle" />
+    <meta name="twitter:description" content="@metaDescription" />
+    <meta name="twitter:image" content="@SharingImageUrl" />
+    <meta property="twitter:image:alt" content="@SharingImageAlt" />
+    <link rel="Stylesheet" href="~/css/fonts.css" type="text/css" />
+    <link rel="Stylesheet" href="~/css/style.css" type="text/css" />
+    <link id="site-fav-icon" rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <!--[if IE]>
+        <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <link rel="Stylesheet" href="css/style-ie.css" type="text/css" />
+    <![endif]-->
+    <!-- jquery -->
+    <script type="text/javascript" src="~/scripts/libs/plugin.js"></script>
+    <script type="text/javascript" src="~/scripts/scripts.js"></script>
+</head>
+
+<body class="home">
+    <!--<div id="container-cookies"></div>-->
+    <div id="outer-wrapper">
+
+        @{ Html.RenderAction("RenderHeader", "SiteLayout"); }
+    <main>
+        @RenderBody()
+    </main>
+        @{ Html.RenderAction("RenderFooter", "SiteLayout"); }
+        
+    </div>
+    <!--<script src="scripts/video.js"></script>-->
+    <script defer="defer" defer="defer" src="~/scripts/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="~/scripts/fancybox/jquery.fancybox.js?v=2.1.5"></script>
+    <link rel="stylesheet" type="text/css" href="~/scripts/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+    <script src="~/scripts/slick.js"></script>
+
+</body>
+
+</html>
+
+

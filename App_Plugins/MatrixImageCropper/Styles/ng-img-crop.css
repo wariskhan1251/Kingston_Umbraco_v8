@@ -1,0 +1,146 @@
+﻿
+         .ui-widget-header,.ui-state-default, ui-button {
+            background:#b9cd6d;
+            border: 1px solid #b9cd6d;
+            color: #FFFFFF;
+            font-weight: bold;
+label, input { 
+    display:block; 
+}
+input.text { 
+    margin-bottom:12px; 
+    width:95%; 
+    padding: .4em; 
+}
+fieldset { 
+    padding:0; 
+    border:0; 
+    margin-top:25px; 
+}
+h1 { 
+    font-size: 1.2em; 
+    margin: .6em 0; 
+}
+div#users-contain { 
+    width: 350px; 
+    margin: 20px 0; 
+}
+div#users-contain table { 
+    margin: 1em 0; 
+    border-collapse: collapse; 
+    width: 100%; 
+}
+div#users-contain table td, div#users-contain table th { 
+    border: 1px solid #eee; 
+    padding: .6em 10px; 
+    text-align: left; 
+}
+.ui-dialog .ui-state-error { 
+    padding: .3em; 
+}
+.validateTips { 
+    border: 1px solid transparent; 
+    padding: 0.3em; 
+}
+.popup-overlay{
+  /*Hides pop-up when there is no "active" class*/
+  visibility:hidden;
+  position:absolute;
+  background:#ffffff;
+  width:50%;
+  height:50%;
+  left:25%; 
+}
+
+.popup-overlay.active{
+visibility:visible;
+}
+
+.popup-content.active {
+visibility:visible;
+}
+
+.popup-content.active {
+  /*Shows pop-up content when "active" class is present */
+  visibility:visible;
+}
+.popup-overlay {
+visibility:hidden;
+}
+
+.popup-content {
+visibility:hidden;
+}
+.cropArea {
+  background: #E4E4E4;
+  overflow: hidden;
+  width:500px;
+  height:350px;
+}
+
+.cropit-image-preview {
+    background-color: #f8f8f8;
+    background-size: cover;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 7px;
+    width: 200px;
+    height: 200px;
+    cursor: move;
+}
+
+.cropit-image-background {
+    opacity: .2;
+    cursor: auto;
+}
+
+/* line 1, ../../source/scss/ng-img-crop.scss */
+img-crop {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+/* line 7, ../../source/scss/ng-img-crop.scss */
+img-crop canvas {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  /* mobile webkit */
+}
+/* line 17, ../../source/scss/ng-img-crop.scss */
+img-crop .loading {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+}
+
+.image-size-label {
+    margin-top: 10px;
+}
+
+input {
+    display: block;
+}
+
+.export {
+    margin-top: 10px;
+}
+
